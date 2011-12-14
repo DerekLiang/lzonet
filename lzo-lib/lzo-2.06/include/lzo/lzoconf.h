@@ -367,6 +367,7 @@ LZO_EXTERN(const char *) lzo_version_string(void);
 LZO_EXTERN(const char *) lzo_version_date(void);
 LZO_EXTERN(const lzo_charp) _lzo_version_string(void);
 LZO_EXTERN(const lzo_charp) _lzo_version_date(void);
+LZO_EXTERN(int) lzo_init1(void);
 
 /* string functions */
 LZO_EXTERN(int)

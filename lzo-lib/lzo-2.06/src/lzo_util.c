@@ -77,6 +77,12 @@ lzo_copyright(void)
 #endif
 }
 
+LZO_PUBLIC(int)
+lzo_init1(void)
+{
+    return lzo_init();
+}
+
 LZO_PUBLIC(unsigned)
 lzo_version(void)
 {
