@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../simplicit.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="headerfont">
+<p>Summary</p>
+<p class="textfont">The .Net-Technology features the very rich and useful FCL 
+  (Foundation Class Library) which covers almost every aspect of programming. 
+  Its quite surprising that there are no classes for easy and fast compression.</p>
+<p class="textfont">LZO.Net brings the power of <a href="http://www.oberhumer.com/" target="_blank">Markus 
+  "FXJ" Oberhumer's</a> great LZO compression library (V1.08) to .Net. It wraps 
+  the access to the native DLL with a small C# class maintaining the raw speed 
+  of the ANSI-C library.</p>
+<p>Installation</p>
+<p class="textfont">The precompiled LZO.Net was build and tested with .NET-Framework 
+  1.1 but should also work with 1.0.</p>
+<p class="textfont">For using LZO.Net in your application you need to reference 
+  the wrapper assembly Simplicit.Net.Lzo from the lib-Directory in your project. 
+  Copy the native lzo.dll right beside the assembly.</p>
+<p class="headerfont">Usage</p>
+<p class="textfont">There is only one class you can use: LZOCompressor and it 
+  has only two methods: Compress and Decompress. The following example in C# shows 
+  how easy it is to use it.</p>
+<blockquote> 
+  <p class="codefont">// Create the compressor object<br>
+    LZOCompressor lzo = new LZOCompress();<br>
+    <br>
+    // Build a quite redundant string<br>
+    StringBuilder sb = new StringBuilder();<br>
+    for(int i = 0; i &lt; 10000; i++) {<br>
+    &nbsp; sb.Append(&quot;LZO.NET&quot;);<br>
+    }<br>
+    string str = sb.ToString();<br>
+    Console.WriteLine(&quot;Original-Length: &quot; + str.Length);<br>
+    <br>
+    // Now compress the 70000 byte string to something much smaller<br>
+    byte[] compressed = lzo.Compress(Encoding.Default.GetBytes(str));<br>
+    Console.WriteLine(&quot;Compressed-Length: &quot; + compressed.Length); <br>
+    <br>
+    // Decompress the string to its original content<br>
+    string str2 = Encoding.Default.GetString(lzo.Decompress(compressed));<br>
+    Console.WriteLine(&quot;Decompressed-Length: &quot; + str2.Length);<br>
+    Console.WriteLine(&quot;Equality: &quot; + str.Equals(str2));</p>
+  <p class="codefont">Output:<br>
+    Original-Length: 70000<br>
+    Compressed-Length: 297<br>
+    Decompressed-Length: 70000<br>
+    Equality: True</p>
+</blockquote>
+<p class="textfont">The most significant thing to say here is that the compressor 
+  only works with raw bytes, it doesn't know the concept of Unicode characters. 
+  So we must feed it with the byte representation of the string we want to compress. 
+  This is done by Encoding.Default.GetBytes(string). The opposite call is GetString(byte[]).</p>
+<p class="textfont">That's it ! Happy compressing ...</p>
+</body>
+</html>

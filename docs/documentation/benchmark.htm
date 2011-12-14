@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Benchmarks</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="../simplicit.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p class="headerfont">Benchmark</p>
+<p class="textfont">I've done some benchmarking tests with the other free compression 
+  library <a href="http://www.icsharpcode.net/OpenSource/SharpZipLib/Default.aspx">#ZipLib</a> 
+  (are there other non-commercial compression libs for .NET ?). #ZipLib is a pure 
+  C# library and has a lot more features than LZO.Net (i. e. ZipFile-Handling) 
+  but can also be used for simple byte-stream compression.</p>
+<p class="textfont">Because the first priority of LZO.Net is speed I used the 
+  #ZipLib-Deflaters with &quot;Best-Speed&quot; level. For the most accurate results 
+  the durations of the compression/decompression steps were measured with Windows 
+  performance counters. Memory consumption wasn't measured.</p>
+<p class="textfont">You can see that the compression ratio of #ZipLib is always 
+  a little bit better. But LZO.Net is <strong>much faster</strong> in both compression 
+  and decompression. </p>
+<p class="textfont">&nbsp;</p>
+<table width="75%" border="1" class="textfont">
+  <tr> 
+    <td colspan="4"><strong>Test-System: IBM-Thinkpad A21m (800 Mhz), 512MB, W2K 
+      (SP4)</strong></td>
+  </tr>
+  <tr> 
+    <td colspan="4">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td colspan="2">&nbsp;</td>
+    <td width="26%"><strong>LZO.Net</strong></td>
+    <td width="26%"><strong>#ZipLib</strong></td>
+  </tr>
+  <tr> 
+    <td colspan="2"><strong>XML-File (Size: 9626 KBytes)</strong></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td width="5%" rowspan="4">&nbsp;</td>
+    <td width="43%">Compression ratio</td>
+    <td>10,79 %</td>
+    <td>8,22 %</td>
+  </tr>
+  <tr> 
+    <td>Compression speed</td>
+    <td>17 ms</td>
+    <td>76 ms</td>
+  </tr>
+  <tr> 
+    <td>Decompression speed</td>
+    <td>8 ms</td>
+    <td>34 ms</td>
+  </tr>
+  <tr> 
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td height="22" colspan="2"><strong>DirectX-Online-Help (11485 KBytes)</strong></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td rowspan="4">&nbsp;</td>
+    <td width="43%">Compression ratio</td>
+    <td>96,5 %</td>
+    <td>95,87 %</td>
+  </tr>
+  <tr> 
+    <td>Compression speed</td>
+    <td>105 ms</td>
+    <td>377 ms</td>
+  </tr>
+  <tr> 
+    <td>Decompression speed</td>
+    <td>13 ms</td>
+    <td>36 ms</td>
+  </tr>
+  <tr> 
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td colspan="2"><strong>PDF (1327 KBytes)</strong></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td rowspan="4">&nbsp;</td>
+    <td>Compression ratio</td>
+    <td>66,54 %</td>
+    <td>65,1 %</td>
+  </tr>
+  <tr> 
+    <td>Compression speed</td>
+    <td>9 ms</td>
+    <td>40 ms</td>
+  </tr>
+  <tr> 
+    <td>Decompression speed</td>
+    <td>1 ms</td>
+    <td>14 ms</td>
+  </tr>
+  <tr> 
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td colspan="2"><strong>DB2-Transaction-Logfile (10008 KBytes)</strong></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td rowspan="4">&nbsp;</td>
+    <td>Compression ratio</td>
+    <td>26,81 %</td>
+    <td>22,23 %</td>
+  </tr>
+  <tr> 
+    <td>Compression speed</td>
+    <td>27 ms</td>
+    <td>154 ms</td>
+  </tr>
+  <tr> 
+    <td>Decompression speed</td>
+    <td>13 ms</td>
+    <td>76 ms</td>
+  </tr>
+  <tr> 
+    <td colspan="3">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td colspan="2"><strong>Lotus-Notes-DB (12544 KBytes)</strong></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td rowspan="3">&nbsp;</td>
+    <td>Compression ratio</td>
+    <td>30,73 %</td>
+    <td>27,36 %</td>
+  </tr>
+  <tr> 
+    <td>Compression speed</td>
+    <td>41 ms</td>
+    <td>209 ms</td>
+  </tr>
+  <tr> 
+    <td>Decompression speed</td>
+    <td>15 ms</td>
+    <td>91 ms</td>
+  </tr>
+</table>
+</body>
+</html>
